@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@stream-io/video-client": "^1.51.0"
+  }
+}
