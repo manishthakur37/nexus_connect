@@ -28,6 +28,9 @@ app_license = "mit"
 # app_include_css = "/assets/nexus_connect/css/nexus_connect.css"
 # app_include_js = "/assets/nexus_connect/js/nexus_connect.js"
 
+app_include_js = [
+    "/assets/nexus_connect/js/frappe/file_uploader/file_uploader.bundle.js"
+]
 # include js, css files in header of web template
 # web_include_css = "/assets/nexus_connect/css/nexus_connect.css"
 # web_include_js = "/assets/nexus_connect/js/nexus_connect.js"
@@ -39,6 +42,9 @@ app_license = "mit"
 # webform_include_js = {"doctype": "public/js/doctype.js"}
 # webform_include_css = {"doctype": "public/css/doctype.css"}
 
+webform_include_js = {
+    "*": "public/js/guest_webform_attachment.js"
+}
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
 

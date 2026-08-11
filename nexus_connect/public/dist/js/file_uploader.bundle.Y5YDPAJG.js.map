@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../apps/nexus_connect/nexus_connect/public/js/frappe/file_uploader/file_uploader.bundle.js"],
+  "sourcesContent": ["frappe.provide(\"nexus_connect\");\n\nfrappe.after_ajax(() => {\n    const OriginalFileUploader = frappe.ui.FileUploader;\n\n    if (!OriginalFileUploader || OriginalFileUploader.__nexus_overridden) {\n        return;\n    }\n\n    class NexusFileUploader extends OriginalFileUploader {\n        constructor(options = {}) {\n            if (\n                frappe.session.user === \"Guest\" &&\n                frappe.web_form\n            ) {\n                options = {\n                    ...options,\n                    allow_toggle_private: false,\n                    make_attachments_public: false,\n                };\n            }\n\n            super(options);\n        }\n    }\n\n    NexusFileUploader.__nexus_overridden = true;\n\n    frappe.ui.FileUploader = NexusFileUploader;\n});"],
+  "mappings": "mbAAA,OAAO,QAAQ,eAAe,EAE9B,OAAO,WAAW,IAAM,CACpB,IAAMA,EAAuB,OAAO,GAAG,aAEvC,GAAI,CAACA,GAAwBA,EAAqB,mBAC9C,OAGJ,MAAMC,UAA0BD,CAAqB,CACjD,YAAYE,EAAU,CAAC,EAAG,CAElB,OAAO,QAAQ,OAAS,SACxB,OAAO,WAEPA,EAAUC,EAAAC,EAAA,GACHF,GADG,CAEN,qBAAsB,GACtB,wBAAyB,EAC7B,IAGJ,MAAMA,CAAO,CACjB,CACJ,CAEAD,EAAkB,mBAAqB,GAEvC,OAAO,GAAG,aAAeA,CAC7B,CAAC",
+  "names": ["OriginalFileUploader", "NexusFileUploader", "options", "__spreadProps", "__spreadValues"]
+}
